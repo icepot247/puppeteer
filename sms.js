@@ -8,7 +8,7 @@ await page.waitForSelector('.mdi-plus.mdi.v-icon.notranslate.v-theme--dark.v-ico
 await page.click('.mdi-plus.mdi.v-icon.notranslate.v-theme--dark.v-icon--size-default');
 
 await page.click("input[type=\"tel\"]")
-await page.keyboard.type('+8801752720020');
+await page.keyboard.type('+8801752720000');
 await page.keyboard.press('Tab');
 
 await page.keyboard.type('Your sms body ');
