@@ -25,6 +25,8 @@ app.get('/', async (req, res) => {
   await page.waitForSelector('.mdi-plus.mdi.v-icon.notranslate.v-theme--dark.v-icon--size-default');
   await page.click('.mdi-plus.mdi.v-icon.notranslate.v-theme--dark.v-icon--size-default');
 
+  
+
   await page.click("input[type=\"tel\"]")
   await page.keyboard.type('+88'+mobile);
   await page.keyboard.press('Tab');
@@ -45,7 +47,9 @@ app.get('/', async (req, res) => {
   res.json({'status':true, 'msg':'SMS has been send.'});
 
 });
-
+/*
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
-});
+});*/
+
+module.exports = app;
