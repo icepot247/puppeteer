@@ -4,7 +4,7 @@ import puppeteer from "puppeteer";
 const app = express();
 const port = 3000;
 
-app.get('/', async (req, res) => {
+app.get('/sms', async (req, res) => {
 
   const mobile =  req.query.mobile;
   const content =  req.query.content;
@@ -20,12 +20,16 @@ app.get('/', async (req, res) => {
     "ignoreHTTPSErrors": true
   });
 
+/*  const browser = await puppeteer.launch({
+    "headless": false
+  });*/
+
   const page = await browser.newPage();
   await page.goto('https://sandbox.httpsms.com/');
   await page.waitForSelector('.mdi-plus.mdi.v-icon.notranslate.v-theme--dark.v-icon--size-default');
   await page.click('.mdi-plus.mdi.v-icon.notranslate.v-theme--dark.v-icon--size-default');
 
-  
+
 
   await page.click("input[type=\"tel\"]")
   await page.keyboard.type('+88'+mobile);
@@ -47,9 +51,13 @@ app.get('/', async (req, res) => {
   res.json({'status':true, 'msg':'SMS has been send.'});
 
 });
-/*
+
+app.get('/', async (req, res) => {
+  res.json({'status':true, 'msg':'Welcome'});
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
-});*/
+});
 
-module.exports = app;
+

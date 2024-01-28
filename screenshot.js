@@ -4,7 +4,7 @@ import puppeteer from "puppeteer"
 	headless: false
 	});
  const page = await browser.newPage();
- await page.goto('https://blog.apify.com');
+ await page.goto('https://google.com');
   //screenshot code
 //   await page.screenshot({ path: 'screenshot.jpeg', fullPage: true  });
 
